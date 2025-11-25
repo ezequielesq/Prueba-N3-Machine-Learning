@@ -50,7 +50,7 @@ Se descartaron columnas según criterios:
 - **Varianza extremadamente baja**
 - **Cardinalidad excesiva**
 - **Correlacion irrelevante**
-- **Descarte logico** 
+- **Descarte lógico** 
 
 *Resultado:* reducción de 124 → **25 columnas útiles**.
 
@@ -107,7 +107,7 @@ Se compararon **StandardScaler vs MinMaxScaler**:
 Se utilizaron dos métodos:
 
 - **Elbow Method** caída significativa hasta K=3.
-- **Silhouette Score:** mejor puntaje para K=3**.
+- **Silhouette Score:** mejor puntaje para K=3.
 
 **Se eligió K = 3 clusters.**
 
@@ -116,3 +116,5 @@ Se utilizaron dos métodos:
 ### Entrenamiento de K-Means
 
 - Se entreno con km = KMeans(n_clusters=3, random_state=42)
+
+---
