@@ -26,6 +26,14 @@ En esta etapa analizamos la estructura del dataset original para entender su com
   - `REGION_RATING_CLIENT` vs `REGION_RATING_CLIENT_W_CITY`
   - `CNT_CHILDREN` vs `CNT_FAM_MEMBERS`
   - Variables altamente correlacionadas de crédito.
+ 
+  
+### Ingeniería de características
+
+Se crean nuevas columnas:
+
+- `AGE_YEARS`
+- `EMPLOYED_YEARS`
 
 ---
 
@@ -64,7 +72,7 @@ Se descartaron columnas según criterios:
 Dos estrategias:
 
 1. **Ordinal Encoding** para educación  
-   (`Lower secondary` → `Academic degree`)
+   (`Lower secondary` -> `Academic degree`)
 
 2. **One-Hot Encoding** para variables nominales  
    - Contract type  
@@ -76,15 +84,6 @@ Dos estrategias:
    Etc.
 
 *Resultado:* dataset final de 40 columnas.
-
----
-
-### Ingeniería de características
-
-Se crean nuevas columnas:
-
-- `AGE_YEARS`
-- `EMPLOYED_YEARS`
 
 ---
 
