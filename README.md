@@ -5,6 +5,9 @@
 Este proyecto desarrolla un flujo completo de _Machine Learning no supervisado_ para segmentar clientes de Home Credit usando **K-Means**.  
 El trabajo se divide en **tres fases**: comprensión, preparación y modelamiento.
 
+Para ejecutar correctamente el código, es necesario crear una carpeta llamada datos_examen y colocar en ella los archivos .parquet incluidos en el archivo
+datos_examen.zip. Esta carpeta debe ubicarse en el mismo directorio donde se encuentra el Notebook.
+
 ---
 
 # 1. Comprensión de los datos
