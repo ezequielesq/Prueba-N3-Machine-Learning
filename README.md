@@ -21,7 +21,7 @@ En esta etapa analizamos la estructura del dataset original para entender su com
   - Detección de outliers fuertes (AMT_INCOME_TOTAL, AMT_CREDIT).
   - Revisión de distribuciones y cardinalidades.
 - Evaluación de valores faltantes:
-  - Algunas variables presentan más de **50–70% de nulos** (ej: APARTMENTS_MEDI).
+  - Algunas variables presentan más de **50–70% de nulos**.
 - Revisión preliminar de posibles redundancias:
   - `REGION_RATING_CLIENT` vs `REGION_RATING_CLIENT_W_CITY`
   - `CNT_CHILDREN` vs `CNT_FAM_MEMBERS`
@@ -33,27 +33,28 @@ En esta etapa analizamos la estructura del dataset original para entender su com
 
 Esta fue la fase más extensa. Aplicamos un pipeline basado en limpieza, transformación y reducción.
 
-### ✔ Eliminación de columnas irrelevantes
+### Eliminación de columnas irrelevantes
 Se descartaron columnas según criterios:
 
 - **ID o sin relación con comportamiento:** `SK_ID_CURR`
 - **Target (para evitar data leakage en clustering):** `TARGET`
-- **Variables con +50% nulos:** APARTMENTS_MEDI, YEARS_BUILD_MEDI, etc.
-- **Campos redundantes:** versiones AVG/MEDI/MODE duplicadas.
-- **Variables de buró muy esporádicas.**
-- **Flags casi constantes (baja varianza).**
+- **Alto procentaje de nulos**
+- **Varianza extremadamente baja**
+- **Cardinalidad excesiva**
+- **Correlacion irrelevante**
+- **Descarte logico** 
 
-*Resultado:* reducción de 122 → **27 columnas útiles**.
+*Resultado:* reducción de 124 → **25 columnas útiles**.
 
 ---
 
 ### Imputación de valores faltantes
 
 **Numéricas:**  
-- Se imputó con **mediana**, robusta ante outliers.
+- Se imputó con **mediana** por la asimetría de las columnas.
 
 **Categóricas:**  
-- Se imputó con la **moda** (categoría más frecuente).
+- Se imputó con la **moda**.
 - En `OCCUPATION_TYPE = None`, se mantuvo como categoría válida (desempleado/no informado).
 
 ---
@@ -74,7 +75,7 @@ Dos estrategias:
    - Organization type  
    Etc.
 
-*Resultado:* dataset final con más de 100 columnas binarias.
+*Resultado:* dataset final de 40 columnas.
 
 ---
 
@@ -82,10 +83,8 @@ Dos estrategias:
 
 Se crean nuevas columnas:
 
-- `AGE_YEARS` = edad positiva en años
+- `AGE_YEARS`
 - `EMPLOYED_YEARS`
-- `REGISTRATION_YEARS`
-- `PHONE_CHANGE_YEARS`
 
 ---
 
@@ -102,20 +101,19 @@ Se compararon **StandardScaler vs MinMaxScaler**:
 
 ---
 
-# 3. Modelamiento (Clustering)
+# 3. Modelamiento
 
 ### Determinación del número óptimo de clusters
 
 Se utilizaron dos métodos:
 
-- **Elbow Method (Inertia):** caída significativa hasta K=3.
-- **Silhouette Score:** mejor puntaje para **K=2 o K=3**, pero K=3 mostró mejor separación sin perder interpretación.
+- **Elbow Method** caída significativa hasta K=3.
+- **Silhouette Score:** mejor puntaje para K=3**.
 
 **Se eligió K = 3 clusters.**
 
 ---
 
 ### Entrenamiento de K-Means
-```python
-km = KMeans(n_clusters=3, random_state=42, n_init='auto')
-labels = km.fit_predict(app_scaled)
+
+- Se entreno con km = KMeans(n_clusters=3, random_state=42)
