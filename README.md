@@ -121,7 +121,7 @@ Se utilizaron dos métodos:
 
 **Se eligió K = 3 clusters.**
 
-[Codo](imgs/Codo.png)
+[Codo](imgs/codo.png)
 
 ---
 
