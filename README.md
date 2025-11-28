@@ -3,7 +3,7 @@
 ## Segmentación de Clientes mediante Clustering (K-Means)
 
 Este proyecto desarrolla un flujo completo de _Machine Learning no supervisado_ para segmentar clientes de Home Credit usando **K-Means**.  
-El trabajo se divide en **tres fases**: comprensión, preparación y modelamiento.
+El trabajo se divide en **tres fases**: comprensión, preparación, modelamiento y evaluación.
 
 Para ejecutar correctamente el código, es necesario crear una carpeta llamada datos_examen y colocar en ella los archivos .parquet incluidos en el archivo
 datos_examen.zip. Esta carpeta debe ubicarse en el mismo directorio donde se encuentra el Notebook.
@@ -113,8 +113,8 @@ Se compararon **StandardScaler vs MinMaxScaler**:
 
 Se utilizaron dos métodos:
 
-- **Elbow Method** caída significativa hasta K=3.
-- **Silhouette Score:** mejor puntaje para K=3.
+- **Elbow Method** caída significativa entre 700000 y 650000 hasta K=3.
+- **Silhouette Score:** mejor puntaje (0.21) para K=3.
 
 **Se eligió K = 3 clusters.**
 
@@ -125,3 +125,18 @@ Se utilizaron dos métodos:
 - Se entreno con km = KMeans(n_clusters=3, random_state=42)
 
 ---
+
+# 4. Evaluación
+
+Se hizo una evaluación interna usando:
+
+- **Silhouette Score** El valor Silhouette Score k=3: 0.1823 obtenido indica que los grupos descubiertos por el modelo existen, pero 
+  presentan un grado considerable de traslape.
+
+- **Davies–Bouldin Index** El valor DBI = 2.2430 obtenido confirma que los clusters son aceptables pero no estan fuertemente diferenciados.
+
+
+# 5. Conclusion
+
+El modelo de clustering logra capturar patrones generales y produce una segmentación para exploración inicial, pero no presenta separación robusta entre grupos.
+Los resultados no son determinantes.
