@@ -98,6 +98,9 @@ _Resultado:_ dataset final de 40 columnas.
 
 Se compararon **StandardScaler vs MinMaxScaler**:
 
+![StandardScaler vs MinMaxScaler](imgs/standarvsminmax.png)
+
+
 - MinMax mostró:
   - Mejor comportamiento en variables fuertemente asimétricas.
   - Menor sensibilidad a outliers.
@@ -118,11 +121,15 @@ Se utilizaron dos métodos:
 
 **Se eligió K = 3 clusters.**
 
+[Codo](imgs/Codo.png)
+
 ---
 
 ### Entrenamiento de K-Means
 
 - Se entreno con km = KMeans(n_clusters=3, random_state=42)
+
+![Resultado](imgs/resultado.png)
 
 ---
 
