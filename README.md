@@ -123,6 +123,8 @@ Se utilizaron dos métodos:
 
 ![Codo](imgs/codo.png)
 
+![Silhouete](imgs/silhouette.png)
+
 ---
 
 ### Entrenamiento de K-Means
