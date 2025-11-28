@@ -116,7 +116,7 @@ Se compararon **StandardScaler vs MinMaxScaler**:
 
 Se utilizaron dos métodos:
 
-- **Elbow Method** caída significativa entre 700000 y 650000 hasta K=3.
+- **Elbow Method** caída significativa entre 800000 y 650000 hasta K=3.
 - **Silhouette Score:** mejor puntaje (0.21) para K=3.
 
 **Se eligió K = 3 clusters.**
