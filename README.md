@@ -20,7 +20,7 @@ En esta etapa analizamos la estructura del dataset original para entender su com
 - Identificación de tipos de variables:
   - **Numéricas continuas:** ingresos, monto de crédito, anuitidad, antigüedad, etc.
   - **Categóricas:** género, tipo de contrato, educación, tipo de vivienda, ocupación, etc.
-  - **Fechas expresadas en días negativos** (propias del dataset original de Home Credit).
+  - **Fechas expresadas en días negativos**.
 - Análisis descriptivo de cada columna:
   - Estadísticos básicos (min, max, media, percentiles).
   - Detección de outliers fuertes (AMT_INCOME_TOTAL, AMT_CREDIT).
